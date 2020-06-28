@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:util="http://www.springframework.org/schema/util"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+	
+	<bean id="person" class="com.yan.spring01.entity.Person" scope="prototype">
+		<property name="id" value="1"></property>
+		<property name="name" value="李四"></property>
+	</bean>
+	
+	<bean id="teacher" class="com.yan.spring01.entity.Teacher">
+		<property name="name" value="张老师"></property>
+		<property name="clazzs">
+			<list>
+				<value>01班</value>
+				<value>02班</value>
+				<value>03班</value>
+			</list>
+		</property>
+	</bean>
+    
+	<bean id="student" class="com.yan.spring01.entity.Student" p:name="张三" >
+		<property name="teacher" ref="teacher"></property>
+	</bean>
+	
+	
+</beans>
