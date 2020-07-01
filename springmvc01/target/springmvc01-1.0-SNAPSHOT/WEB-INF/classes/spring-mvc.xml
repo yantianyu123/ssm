@@ -20,23 +20,6 @@
     <mvc:default-servlet-handler/>
     <!-- 支持将javabean对象自动转成json数据 -->
     <mvc:annotation-driven/>
-    
-    <!-- 解决json中文乱码 -->
-    <mvc:annotation-driven>
-        <mvc:message-converters register-defaults="true">
-            <!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 注解请求映射
-            默认是ISO-88859-1，避免乱码这里设置为UTF-8 -->
-            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
-                <property name="supportedMediaTypes" >
-                    <list>
-                        <value>application/json;charset=UTF-8</value>
-                        <value>text/html;charset=UTF-8</value>
-                    </list>
-                </property>
-            </bean>
-            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
-        </mvc:message-converters>
-    </mvc:annotation-driven>
 
     <!-- thymeleaf视图解析 -->
     <bean id="templateResolver" class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
